@@ -31,15 +31,9 @@ export const Checkbox = ({ isChecked, label, checkHandler }: CheckboxProps) => {
 };
 
 export default function Generator() {
-  // const [includeUppercase, setIncludeUppercase] = useState(false);
-  // const [includeLowercase, setIncludeLowercase] = useState(false);
-  // const [includeNumbers, setIncludeNumbers] = useState(false);
-  // const [includeSymbols, setIncludeSymbols] = useState(false);
   const [options, setOptions] = useState(allOptions);
   const [length, setLength] = useState(0);
   const [password, setPassword] = useState("");
-  // const [error, setError] = useState("");
-  // const [isGenerating, setIsGenerating] = useState(false);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -60,7 +54,6 @@ export default function Generator() {
     if (options[3].checked) {
       validChars += symbols;
     }
-    // console.log("validChars", validChars);
     let generatedPassword = "";
     for (let i = 0; i < length; i++) {
       const randomIndex = Math.floor(Math.random() * validChars.length);
@@ -69,7 +62,6 @@ export default function Generator() {
     setPassword(generatedPassword);
   };
   const onHandleChange = (index) => {
-    // console.log("index", index);
     setOptions(
       options.map((option, currentIndex) => {
         return currentIndex === index
@@ -77,25 +69,7 @@ export default function Generator() {
           : option;
       })
     );
-    // setIncludeUppercase(event.target.checked);
-    // setIncludeLowercase(event.target.checked);
-    // setIncludeNumbers(event.target.checked);
-    // setIncludeSymbols(event.target.checked);
-    // console.log("Include Uppercase:", includeUppercase);
-    // console.log("Include Lowercase:", includeLowercase);
-    // console.log("Include Numbers:", includeNumbers);
-    // console.log("Include Symbols:", includeSymbols);
-    // console.log("Length:", length);
   };
-  const resetForm = () => {
-    setLength(0);
-    setPassword("");
-    setOptions(
-      options.map((option) => {
-        return { ...option, checked: false };
-      })
-    );
-  }
   return (
     <div className="flex flex-col items-center justify-center min-h-screen px-6 w-full max-w-lg mx-auto mt-20">
       <h1 className="text-2xl">Password Generator</h1>
@@ -146,67 +120,7 @@ export default function Generator() {
               }}
             />
           </div>
-          {/* <div className="flex items-center">
-            <input
-            key={Math.random()}
-              type="checkbox"
-              id="uppercase"
-              className="mr-2"
-              checked={includeUppercase}
-              onChange={onHandleChange}
-            />
-            <label htmlFor="uppercase">Include Uppercase</label>
-          </div>
-          <div className="flex items-center">
-            <input
-            key={Math.random()}
-              type="checkbox"
-              id="lowercase"
-              className="mr-2"
-              checked={includeLowercase}
-              onChange={checkHandler}
-            />
-            <label htmlFor="lowercase">Include Lowercase</label>
-          </div>
-          <div className="flex items-center">
-            <input
-            key={Math.random()}
-              type="checkbox"
-              id="numbers"
-              className="mr-2"
-              checked={includeNumbers}
-              onChange={checkHandler}
-            />
-            <label htmlFor="numbers">Include Numbers</label>
-          </div>
-          <div className="flex items-center">
-            <input
-            key={Math.random()}
-              type="checkbox"
-              id="symbols"
-              className="mr-2"
-              checked={includeSymbols}
-              onChange={checkHandler}
-            />
-            <label htmlFor="symbols">Include Symbols</label>
-          </div>
-          <div className="mt-8">
-            <button
-              className="mr-4 bg-blue-500 text-white rounded-lg px-4 py-2"
-              type="submit"
-            >
-              Generate
-            </button>
-            <input
-              type="text"
-              className="border border-gray-300 rounded-lg p-2"
-              placeholder="Generated Password"
-            />
-          </div> */}
         </form>
-      </div>
-      <div className="mt-8">
-        
       </div>
     </div>
   );
