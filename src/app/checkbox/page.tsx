@@ -3,7 +3,7 @@
 //   label: string;
 //   checkHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
 // }
-export const Checkbox = () => {
+export default function Checkbox() {
   return (
     <div>
       {/* <form>
