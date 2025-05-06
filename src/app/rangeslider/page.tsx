@@ -6,7 +6,7 @@ export default function RangeSlider() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     console.log(value);
-    setValue(value);
+    setValue(Number(value));
     // Perform any action with the value
   };
   return (
