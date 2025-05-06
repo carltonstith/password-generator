@@ -53,7 +53,7 @@ const WORDS_TO_ANIMATE = [
 export default function AnimatedText() {
   // const [facts, setFacts] = useState(password_security_best_practices_SAMPLE);
   const [fadeProp, setFadeProp] = useState("fadeout");
-  const [wordOrder, setWordOrder] = useState(0);
+  const [, setWordOrder] = useState(0);
   const [randomFact, setRandomFact] = useState("");
 
   useEffect(() => {
@@ -120,6 +120,7 @@ export default function AnimatedText() {
           <span className={`text-2xl font-extralight ${fadeProp}`}>
             {randomFact}
           </span>
+          {/* <span className="">{wordOrder}</span> */}
         </h2>
         {/* <p>Use strong passwords</p>
         <small>Create passwords that are at least 12 characters long and include a mix of uppercase letters, lowercase letters, numbers, and special characters.</small> */}
