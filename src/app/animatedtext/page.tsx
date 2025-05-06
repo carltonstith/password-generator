@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-const FADE_INTERVAL_MS = 2000;
+const FADE_INTERVAL_MS = 10000;
 const WORD_CHANGE_INTERVAL_MS = FADE_INTERVAL_MS * 2;
 const WORDS_TO_ANIMATE = [
   "Use strong passwords: Create passwords that are at least 12 characters long and include a mix of uppercase letters, lowercase letters, numbers, and special characters.",
@@ -54,6 +54,7 @@ export default function AnimatedText() {
   // const [facts, setFacts] = useState(password_security_best_practices_SAMPLE);
   const [fadeProp, setFadeProp] = useState("fadeout");
   const [wordOrder, setWordOrder] = useState(0);
+  const [randomFact, setRandomFact] = useState("");
 
   useEffect(() => {
     const fadeTimeout = setInterval(() => {
@@ -74,6 +75,14 @@ export default function AnimatedText() {
     }, WORD_CHANGE_INTERVAL_MS);
     return () => clearInterval(wordTimeout);
   }, []);
+
+  useEffect(() => {
+    const randomInt = Math.floor(Math.random() * WORDS_TO_ANIMATE.length);
+    const randomFact = WORDS_TO_ANIMATE[randomInt];
+    console.log("Random Fact: ", randomFact);
+    setRandomFact(randomFact);
+    // console.log("Random Int: ", randomInt);
+  })
 
   // useEffect(() => {
   //   //console.log("Facts component mounted");
@@ -107,7 +116,10 @@ export default function AnimatedText() {
     <footer className="footer footer-center p-10 bg-base-200 text-base-content">
       <div>
         <h2>
-          <span>{WORDS_TO_ANIMATE[wordOrder]}</span>
+          {/* <span>{WORDS_TO_ANIMATE[wordOrder]}</span> */}
+          <span className={`text-2xl font-extralight ${fadeProp}`}>
+            {randomFact}
+          </span>
         </h2>
         {/* <p>Use strong passwords</p>
         <small>Create passwords that are at least 12 characters long and include a mix of uppercase letters, lowercase letters, numbers, and special characters.</small> */}

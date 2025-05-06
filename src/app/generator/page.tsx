@@ -85,7 +85,7 @@ export default function Generator() {
             Generate strong passwords with ease.
           </p>
           {/* create a new component*/}
-          <div className="flex justify-center mt-2 mb-10">
+          {/* <div className="flex justify-center mt-2 mb-10">
             <div className="relative inline-flex w-full xs:w-auto">
               <div className="absolute inset-0 rounded-lg xs:rounded-[22px] bg-gradient-to-r from-[#FF1E56] to-[#0196FF] w-full xs:w-auto"></div>
               <div className="relative text-center rounded-md xs:rounded-[20px] m-[2px] bg-background-100 dark:bg-black px-4 py-1.5 md:px-5 md:py-0.5 w-full xs:w-auto">
@@ -97,10 +97,9 @@ export default function Generator() {
                 </span>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="mt-8">
             <form className="space-y-6" onSubmit={handleSubmit}>
-              {/* <RangeSlider /> */}
               <label htmlFor="length">Password Length</label>
               {/* <RangeSlider /> */}
               <input
@@ -128,12 +127,6 @@ export default function Generator() {
                 </div>
               ))}
               <div className="mt-8">
-                {/* <button
-              className="mr-4 btn btn-lg btn-neutral  text-white rounded-lg px-4 py-2"
-              type="submit"
-            >
-              Generate
-            </button> */}
                 <div className="w-full flex flex-wrap h-fit gap-3 2xs:gap-2 sm:gap-4 justify-center items-center">
                   <button
                     className="mr-4 btn btn-lg btn-neutral  text-white rounded-lg px-4 py-2"
@@ -141,51 +134,53 @@ export default function Generator() {
                   >
                     Generate
                   </button>
-                  <input
-                    type="text"
-                    className="border border-gray-300 rounded-lg p-2"
-                    placeholder="Generated Password"
-                    value={password}
-                    readOnly
-                    onClick={() => {
-                      navigator.clipboard.writeText(password);
-                      alert("Password copied to clipboard!");
-                    }}
-                  />
-                  <button
-                    type="button"
-                    aria-label="Copy to clipboard"
-                    className="absolute right-2 top-2 p-1 sm:p-2 rounded-md hover:bg-gray-800 transition-colors"
-                    onClick={() => {
-                      navigator.clipboard.writeText(password);
-                      alert("Password copied to clipboard!");
-                    }}
-                  >
-                    <span className="flex items-center justify-center">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="lucide lucide-copy"
-                      >
-                        <rect
-                          width="14"
-                          height="14"
-                          x="8"
-                          y="8"
-                          rx="2"
-                          ry="2"
-                        ></rect>
-                        <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
-                      </svg>
-                    </span>
-                  </button>
+                  <div className="input-wrapper">
+                    <input
+                      type="text"
+                      className="border border-gray-300 rounded-lg p-2"
+                      placeholder="Generated Password"
+                      value={password}
+                      readOnly
+                      onClick={() => {
+                        navigator.clipboard.writeText(password);
+                        alert("Password copied to clipboard!");
+                      }}
+                    />
+                    <button
+                      type="button"
+                      aria-label="Copy to clipboard"
+                      className="absolute p-1 sm:p-2 rounded-md hover:bg-gray-800 transition-colors copy-to-clipboard"
+                      onClick={() => {
+                        navigator.clipboard.writeText(password);
+                        alert("Password copied to clipboard!");
+                      }}
+                    >
+                      <span className="flex items-center justify-center">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="lucide lucide-copy"
+                        >
+                          <rect
+                            width="14"
+                            height="14"
+                            x="8"
+                            y="8"
+                            rx="2"
+                            ry="2"
+                          ></rect>
+                          <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
+                        </svg>
+                      </span>
+                    </button>
+                  </div>
                 </div>
               </div>
             </form>
