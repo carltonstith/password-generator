@@ -1,12 +1,12 @@
-interface CheckboxProps {
-  isChecked: boolean;
-  label: string;
-  checkHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
-export const Checkbox = ({ isChecked, label, checkHandler }: CheckboxProps) => {
+// interface CheckboxProps {
+//   isChecked: boolean;
+//   label: string;
+//   checkHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
+// }
+export const Checkbox = () => {
   return (
     <div>
-      <form>
+      {/* <form>
         <input
           type="checkbox"
           id="checkbox"
@@ -15,7 +15,7 @@ export const Checkbox = ({ isChecked, label, checkHandler }: CheckboxProps) => {
         />
         &nbsp;
         <label htmlFor="checkbox">{label}</label>
-      </form>
+      </form> */}
     </div>
   );
 };
